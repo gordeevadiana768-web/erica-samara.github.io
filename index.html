@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Erica — салон маникюра в Самаре</title>
+<meta name="description" content="Салон маникюра Erica в Самаре. Онлайн-запись, опытные мастера, стерильные инструменты. Красивый маникюр без очередей.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; color: #2b2b2b; line-height: 1.6; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+  header { position: sticky; top: 0; z-index: 10; background: #fff; border-bottom: 1px solid #eee; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; max-width: 1100px; margin: 0 auto; }
+  .logo { font-size: 22px; font-weight: 700; letter-spacing: 1px; color: #b04a6e; }
+  .logo span { color: #2b2b2b; font-weight: 400; font-size: 13px; display: block; letter-spacing: 0; }
+  .btn { display: inline-block; background: #b04a6e; color: #fff; padding: 12px 26px; border-radius: 30px; font-weight: 600; transition: background .2s; border: none; cursor: pointer; font-size: 15px; }
+  .btn:hover { background: #943a5a; }
+  .btn-outline { background: transparent; color: #b04a6e; border: 2px solid #b04a6e; }
+  .btn-outline:hover { background: #b04a6e; color: #fff; }
+
+  .hero { background: linear-gradient(135deg, #fdf1f5 0%, #f7e3ea 100%); padding: 80px 20px; text-align: center; }
+  .hero h1 { font-size: 40px; margin-bottom: 16px; color: #2b2b2b; }
+  .hero p { font-size: 18px; color: #666; max-width: 620px; margin: 0 auto 28px; }
+  .hero .btn { font-size: 17px; padding: 14px 34px; }
+
+  section { padding: 64px 0; }
+  section h2 { font-size: 30px; text-align: center; margin-bottom: 8px; }
+  section .subtitle { text-align: center; color: #888; margin-bottom: 40px; }
+
+  .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+  .service-card { border: 1px solid #eee; border-radius: 16px; padding: 24px; transition: box-shadow .2s; }
+  .service-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+  .service-card h3 { font-size: 18px; margin-bottom: 10px; color: #b04a6e; }
+  .service-card .price { font-size: 22px; font-weight: 700; margin-top: 10px; }
+  .service-card .time { color: #999; font-size: 14px; }
+
+  /* Галерея — фото ногтей */
+  .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .gallery-item { position: relative; aspect-ratio: 1 / 1; border-radius: 14px; overflow: hidden; background: #f3d6e0; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+  .gallery-item:hover img { transform: scale(1.06); }
+
+  .masters { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+  .master-card { text-align: center; }
+  .master-photo { width: 140px; height: 140px; border-radius: 50%; overflow: hidden; margin: 0 auto 14px; background: linear-gradient(135deg, #e8b7c9, #d78aa6); }
+  .master-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .master-card h3 { font-size: 17px; margin-bottom: 4px; }
+  .master-card p { color: #888; font-size: 14px; }
+
+  .booking { background: #2b2b2b; color: #fff; text-align: center; border-radius: 20px; padding: 48px 20px; }
+  .booking h2 { color: #fff; }
+  .booking p { color: #ccc; margin-bottom: 24px; }
+  .booking .btn { background: #b04a6e; }
+  .booking .btn:hover { background: #943a5a; }
+  .booking-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  .contacts { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+  .contacts ul { list-style: none; }
+  .contacts li { margin-bottom: 14px; font-size: 16px; }
+  .contacts li strong { display: block; color: #888; font-size: 13px; text-transform: uppercase; }
+  .map-placeholder { height: 280px; border-radius: 16px; background: repeating-linear-gradient(45deg, #eee, #eee 10px, #f5f5f5 10px, #f5f5f5 20px); display: flex; align-items: center; justify-content: center; color: #999; font-size: 14px; }
+
+  footer { background: #f7f7f7; padding: 28px 20px; text-align: center; color: #888; font-size: 13px; }
+  footer a { color: #b04a6e; }
+
+  @media (max-width: 700px) {
+    .hero h1 { font-size: 28px; }
+    .contacts { grid-template-columns: 1fr; }
+    section { padding: 48px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">ERICA<span>салон маникюра · Самара</span></div>
+    <a href="#booking" class="btn">Записаться</a>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Красивый маникюр в Самаре</h1>
+  <p>Салон Erica — онлайн-запись за 30 секунд, опытные мастера, стерильные инструменты и уютная атмосфера в центре Самары.</p>
+  <a href="#booking" class="btn">Записаться онлайн</a>
+</section>
+
+<section id="services">
+  <div class="container">
+    <h2>Услуги и цены</h2>
+    <p class="subtitle">Без скрытых доплат — цена на сайте равна цене в салоне</p>
+    <div class="services">
+      <div class="service-card">
+        <h3>Маникюр классический</h3>
+        <p class="time">≈ 60 минут</p>
+        <p class="price">1 500 ₽</p>
+      </div>
+      <div class="service-card">
+        <h3>Маникюр + гель-лак</h3>
+        <p class="time">≈ 90 минут</p>
+        <p class="price">2 500 ₽</p>
+      </div>
+      <div class="service-card">
+        <h3>Наращивание ногтей</h3>
+        <p class="time">≈ 120 минут</p>
+        <p class="price">3 200 ₽</p>
+      </div>
+      <div class="service-card">
+        <h3>Дизайн (за 1 ноготь)</h3>
+        <p class="time">≈ 5 минут</p>
+        <p class="price">100 ₽</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fdf7f9;">
+  <div class="container">
+    <h2>Наши работы</h2>
+    <p class="subtitle">Примеры маникюра — замените на реальные фото из портфолио Erica</p>
+    <div class="gallery">
+      <!-- Случайные красивые фото ногтей с Unsplash (бесплатные, можно использовать) -->
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80" alt="Маникюр Erica Самара" loading="lazy"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=600&q=80" alt="Маникюр Erica Самара" loading="lazy"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600&q=80" alt="Маникюр Erica Самара" loading="lazy"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=600&q=80" alt="Маникюр Erica Самара" loading="lazy"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600&q=80" alt="Маникюр Erica Самара" loading="lazy"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="Маникюр Erica Самара" loading="lazy"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=600&q=80" alt="Маникюр Erica Самара" loading="lazy"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600&q=80" alt="Маникюр Erica Самара" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Мастера</h2>
+    <p class="subtitle">Познакомьтесь с теми, кто будет делать ваш маникюр</p>
+    <div class="masters">
+      <div class="master-card">
+        <div class="master-photo"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&q=80" alt="Мастер Erica Самара" loading="lazy"></div>
+        <h3>Анна</h3>
+        <p>Мастер маникюра, стаж 5 лет</p>
+      </div>
+      <div class="master-card">
+        <div class="master-photo"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&q=80" alt="Мастер Erica Самара" loading="lazy"></div>
+        <h3>Мария</h3>
+        <p>Наращивание, дизайн, стаж 3 года</p>
+      </div>
+      <div class="master-card">
+        <div class="master-photo"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&q=80" alt="Мастер Erica Самара" loading="lazy"></div>
+        <h3>Ольга</h3>
+        <p>Аппаратный маникюр, стаж 7 лет</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="booking" id="booking">
+      <h2>Запишитесь онлайн</h2>
+      <p>Выберите услугу, мастера и удобное время — запись придёт вам в мессенджер.</p>
+      <div class="booking-actions">
+        <a href="https://wa.me/70000000000" class="btn" target="_blank">Записаться в WhatsApp</a>
+        <a href="https://t.me/username" class="btn btn-outline" style="color:#fff;border-color:#fff;" target="_blank">Записаться в Telegram</a>
+      </div>
+      <p style="margin-top:24px; font-size:13px; color:#aaa;">
+        Сюда можно вставить виджет DIKIDI/YCLIENTS: зарегистрируйтесь в сервисе, скопируйте код виджета и вставьте на это место.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Контакты</h2>
+    <p class="subtitle">Ждём вас в салоне Erica</p>
+    <div class="contacts">
+      <ul>
+        <li><strong>Адрес</strong>г. Самара, ул. [улица], [дом]</li>
+        <li><strong>Телефон</strong><a href="tel:+70000000000">+7 (000) 000-00-00</a></li>
+        <li><strong>Часы работы</strong>Ежедневно 10:00 – 21:00</li>
+        <li><strong>Мессенджеры</strong>WhatsApp / Telegram</li>
+      </ul>
+      <div class="map-placeholder">Здесь будет карта (Яндекс.Карты / Google Maps)</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Erica — салон маникюра, Самара. Все права защищены.<br>
+  <a href="#">Политика конфиденциальности</a> · <a href="#">Согласие на обработку персональных данных</a>
+</footer>
+
+</body>
+</html>
